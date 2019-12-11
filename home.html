@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<!-- saved from url=(0042)https://v3.bootcss.com/examples/dashboard/ -->
+<html lang="zh-CN">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=0.7">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="https://recycle.likey.com.tw/img/logo.ico">
+    <!-- <link rel="icon" href="https://v3.bootcss.com/favicon.ico"> -->
+    <!-- <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script> -->
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script> -->
+    <script type="text/javascript" src='test-credentials.js'></script>
+    <script type="text/javascript" src="https://js.api.here.com/v3/3.0/mapsjs-core.js"></script>
+    <script type="text/javascript" src="https://js.api.here.com/v3/3.0/mapsjs-service.js"></script>
+    <script type="text/javascript" src="https://js.api.here.com/v3/3.0/mapsjs-ui.js"></script>
+    <script type="text/javascript" src="https://js.api.here.com/v3/3.0/mapsjs-mapevents.js"></script>
+    <title>監控平台</title>
+    <link rel="stylesheet" type="text/css" href="home.css">
+    <!-- Bootstrap core CSS -->
+    <link href="./Dashboard Template for Bootstrap_files/bootstrap.min.css" rel="stylesheet">
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <link href="./Dashboard Template for Bootstrap_files/ie10-viewport-bug-workaround.css" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link href="./Dashboard Template for Bootstrap_files/dashboard.css" rel="stylesheet">
+    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+    <script src="./Dashboard Template for Bootstrap_files/ie-emulation-modes-warning.js.下載"></script>
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+<!--     <script type="text/javascript">
+        setInterval("requestingData_Order();", 10000);
+        setInterval("requestingData_Driver();", 10000);
+        setInterval("requestingData_Route();", 10000);
+    </script> -->
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="https://recycle.likey.com.tw/home.html">監控平台</a>
+                <a class="navbar-brand" href="https://recycle.likey.com.tw/history.html">歷史資料</a>
+            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a class="myMouse" onclick="signout()">登出</a></li>
+                    <!-- <li><a href="https://v3.bootcss.com/examples/dashboard/#">歷史資料</a></li>
+                    <li><a href="https://v3.bootcss.com/examples/dashboard/#">幫助</a></li> -->
+                </ul>
+                <!-- <button class="btn-sm navbar-nav navbar-brand navbar-right" onclick="signout()">登出</button> -->
+                <form class="navbar-form navbar-right">
+                    <input type="text" class="form-control" placeholder="Search...">
+                </form>
+                <!-- <a class="navbar-brand navbar-right"href="https://recycle.likey.com.tw/signin.html">登出</a> -->
+            </div>
+        </div>
+    </nav>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-3 col-md-2-5 sidebar">
+                <!--左列-->
+                <ul class="nav nav-tabs" role="tablist">
+                    <!--左上兩按鈕-->
+                    <li role="presentation" onclick="requestingData_Order()">
+                        <a href="#home" aria-controls="home" role="tab" data-toggle="tab" class="navbar-brand">訂單管理</a>
+                    </li>
+                    <li role="presentation" onclick="requestingData_Route()">
+                        <a href="#profile" aria-controls="profile" role="tab" data-toggle="tab" class="navbar-brand">路線管理</a>
+                    </li>
+                </ul>
+                <div class="tab-content">
+                    <!--左列大小-->
+                    <div role="tabpanel" class="tab-pane active" id="home">
+                        <!--訂單區-->
+                    </div>
+                    <div role="tabpanel" class="tab-pane" id="profile">
+                        <!--路線區-->
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-3 col-md-2-5 rightsidebar">
+            <!--右列-->
+            <ul class="nav nav-tabs" role="tablist">
+                <li role="presentation" class="myMouse" onclick="requestingData_Driver()">
+                    <a href="#driver" role="tab" data-toggle="tab" class="navbar-brand">車輛管理</a>
+                </li>
+            </ul>
+            <div id="driver">
+            </div>
+        </div>
+        <div class="col-sm-6 col-sm-offset-3 col-md-offset-2 col-md-8 col-md-offset-2 main">
+            <div class="page-header row">
+                <div class="col-md-4">
+                    <button class="btn btn-default" onclick="addTotalOrdertoMap()">顯示全訂單</button>
+                    <button class="btn btn-default" onclick="addTotalRoutestoMap()">顯示全路線</button>
+                    <button class="btn btn-default" onclick="addTotalDrivertoMap()">顯示全司機</button>
+                </div>
+                <div class="col-md-4 text-center">
+                    主地圖
+                </div>
+                <div class="col-md-4 text-right">
+                    <button class="btn btn-default" onclick="clearMap()">清空地圖</button>
+                </div>
+            </div>
+            <div id="map"></div>
+        </div>
+    </div>
+    <!-- <script type="text/javascript" src='basic_map.js'></script> -->
+    <script type="text/javascript" src="home.js"></script>
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="./Dashboard Template for Bootstrap_files/jquery.min.js.下載">
+    下載
+    </script>
+    <script>
+    window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')
+    </script>
+    <script src="./Dashboard Template for Bootstrap_files/bootstrap.min.js.下載"></script>
+    <!-- Just to make our placeholder images work. Don't actually copy the next line! -->
+    <script src="./Dashboard Template for Bootstrap_files/holder.min.js.下載"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="./Dashboard Template for Bootstrap_files/ie10-viewport-bug-workaround.js.下載"></script>
+</body>
+
+</html>

@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=0.8">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="https://v3.bootcss.com/favicon.ico">
+    <link href="history.css" rel="stylesheet">
+    <title>歷史資料</title>
+    <!-- Bootstrap core CSS -->
+    <link href="./Dashboard Template for Bootstrap_files/bootstrap.min.css" rel="stylesheet">
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <link href="./Dashboard Template for Bootstrap_files/ie10-viewport-bug-workaround.css" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link rel="stylesheet" type="text/css" href="history.css">
+    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+    <script src="./Dashboard Template for Bootstrap_files/ie-emulation-modes-warning.js.下載"></script>
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="https://recycle.likey.com.tw/home.html">監控平台</a>
+                <a class="navbar-brand" href="https://recycle.likey.com.tw/history.html">歷史資料</a>
+            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a class="myMouse" onclick="signout()">登出</a></li>
+                    <!-- <li><a href="https://v3.bootcss.com/examples/dashboard/#">歷史資料</a></li>
+                    <li><a href="https://v3.bootcss.com/examples/dashboard/#">幫助</a></li> -->
+                </ul>
+                <!-- <button class="btn-sm navbar-nav navbar-brand navbar-right" onclick="signout()">登出</button> -->
+                <form class="navbar-form navbar-right">
+                    <input type="text" class="form-control" placeholder="Search...">
+                </form>
+                <!-- <a class="navbar-brand navbar-right"href="https://recycle.likey.com.tw/signin.html">登出</a> -->
+            </div>
+        </div>
+    </nav>
+    <!-- <div class="jumbotron"> -->
+    <div class="container">
+        <div class="panel panel-default">
+            <!-- Default panel contents -->
+            <div class="panel-heading">
+                <ul class="nav nav-pills" role="tablist">
+                    <li role="presentation" class="active">
+                        <a href="#hisorderdata" aria-controls="hisorder" role="tab" data-toggle="tab" class="navbar-brand" onclick="requestingData_Order()">訂單管理</a>
+                    </li>
+                    <li role="presentation">
+                        <a href="#hisrouteanddriver" aria-controls="hisroute" role="tab" data-toggle="tab" class="navbar-brand" onclick="requestingData_Driver()">路線與車輛管理</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- Table -->
+            <div class="tab-content">
+                <div role="tabpanel" class="tab-pane active" id="hisorderdata">
+                    <table class="table">
+                        <tr>
+                            <th>訂單ID</th>
+                            <th>時間</th>
+                            <th>使用者姓名</th>
+                            <th>地址</th>
+                            <th>連絡電話</th>
+                            <th>回收種類</th>
+                            <th>回收重量</th>
+                            <th>回收價錢</th>
+                        </tr>
+                        <tbody id="hisorder">
+                        </tbody>
+                    </table>
+                </div>
+                <div role="tabpanel" class="tab-pane" id="hisrouteanddriver">
+                    <table class="table">
+                        <tr>
+                            <th>路線ID</th>
+                            <th>司機ID</th>
+                            <th>時間</th>
+                            <th>司機姓名</th>
+                            <th>車牌</th>
+                            <th>連絡電話</th>
+                            <th>總收益</th>
+                            <th>訂單ID</th>
+                            <th>訂單地址</th>
+                        </tr>
+                        <tbody id="hisroute">
+                            <tr>
+                                <td>123456789</td>
+                                <td>987654321</td>
+                                <td>10/02</td>
+                                <td>半夜的滷味攤</td>
+                                <td>ABC-0000</td>
+                                <td>0939321110</td>
+                                <td>100元</td>
+                                <td>00000000</td>
+                                <td>台北市信義區XX路XX巷XX號</td>
+                            </tr>
+                            <tr>
+                                <td>123456789</td>
+                                <td>987654321</td>
+                                <td>10/02</td>
+                                <td>半夜的滷味攤</td>
+                                <td>ABC-0000</td>
+                                <td>0939321110</td>
+                                <td>100元</td>
+                                <td>00000000</td>
+                                <td>台北市信義區XX路XX巷XX號</td>
+                            </tr>
+                            <tr>
+                                <td>123456789</td>
+                                <td>987654321</td>
+                                <td>10/02</td>
+                                <td>半夜的滷味攤</td>
+                                <td>ABC-0000</td>
+                                <td>0939321110</td>
+                                <td>100元</td>
+                                <td>00000000</td>
+                                <td>台北市信義區XX路XX巷XX號</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- </div> -->
+    <!-- <div class="container">
+        <div class="jumbotron">
+            <h1>Navbar example</h1>
+            <p>This example is a quick exercise to illustrate how the default, static and fixed to top navbar work. It includes the responsive CSS and HTML, so it also adapts to your viewport and device.</p>
+            <p>To see the difference between static and fixed top navbars, just scroll.</p>
+        </div>
+    </div> -->
+    <script type="text/javascript" src="history.js"></script>
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="./Dashboard Template for Bootstrap_files/jquery.min.js.下載">
+    下載
+    </script>
+    <script>
+    window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')
+    </script>
+    <script src="./Dashboard Template for Bootstrap_files/bootstrap.min.js.下載"></script>
+    <!-- Just to make our placeholder images work. Don't actually copy the next line! -->
+    <script src="./Dashboard Template for Bootstrap_files/holder.min.js.下載"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="./Dashboard Template for Bootstrap_files/ie10-viewport-bug-workaround.js.下載"></script>
+</body>
+
+</html>
