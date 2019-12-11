@@ -36,7 +36,8 @@ h1,h2,h3,h4,h5,h6 {
 .logo {	
 	margin-top:50px;
 	margin-bottom:50px;
-  margin-left: 20px;
+  margin-left: 30px;
+  /*margin-right: 25px;*/
 }
 
 .logo h1{
@@ -78,7 +79,8 @@ body > div > div > div.images > div > img{
 	text-transform:uppercase;
 	font-weight:600;
 	color:#000;
-	margin-left:50px;
+	margin-left:44px;
+  /*margin-right: 44px;*/
 }
 .nav-stacked li a:hover {
 	color:#6EE5A1;
