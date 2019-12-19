@@ -208,7 +208,7 @@ div.member img{
     /*border-width: 2px;*/
 }
 
-body > div > div.col-md-10 > div > div > div:nth-child(2) > a > img{
+body > div > div.col-md-10 > div > div > div > a > img{
     width: 40%;
     margin-top: 30px;
     margin-bottom: 20px;
