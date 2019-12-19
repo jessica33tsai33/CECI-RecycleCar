@@ -199,3 +199,21 @@ body>div>div.col-md-10>div.center>h3 {
     margin-right: 0px;
     margin-left: 0px;
 }
+
+div.member img{
+    width: 50%;
+    /*border-radius: 50%;*/
+    /*border-style: solid;*/
+    /*border-color: black;*/
+    /*border-width: 2px;*/
+}
+
+body > div > div.col-md-10 > div > div > div:nth-child(2) > a > img{
+    width: 40%;
+    margin-top: 30px;
+    margin-bottom: 20px;
+}
+
+#blank{
+    height: 25px;
+}
