@@ -7,4 +7,4 @@
 ## DIGI計劃小組介紹網站
 此網站為介紹本次專案的小組成員以及帶領的業師，同時也有app的下載點與監控網站的連結
 
-網址：https://recycle.likey.com.tw/
+網址：https://recycle.likey.com.tw/intro
